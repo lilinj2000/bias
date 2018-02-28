@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  wordpress:
+    image: wordpress
+    restart: always
+    ports:
+      - 32768:80
+    environment:
+      - WORDPRESS_DB_PASSWORD=wordpress
+    volumes:
+      - ./www/html:/var/www/html
+    links:
+      - mysql
+
+  mysql:
+    image: mysql:5.7
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=wordpress
+      - TZ=Asia/Shanghai
+    volumes:
+      - ./mysql:/var/lib/mysql
+
+
+
+
+
