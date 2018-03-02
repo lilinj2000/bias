@@ -2,7 +2,7 @@ version: "3"
 
 services:
   wordpress:
-    image: wordpress
+    image: wordpress:php7.2
     restart: always
     ports:
       - 32768:80
